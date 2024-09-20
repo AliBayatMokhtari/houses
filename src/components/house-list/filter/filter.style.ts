@@ -42,4 +42,5 @@ export const ClearIcon = styled.img`
   transform: translateY(calc(-50% + 1px));
   position: absolute;
   right: calc(var(--size) / 2 + 8px);
+  cursor: pointer;
 `;

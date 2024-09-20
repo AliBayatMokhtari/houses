@@ -1,21 +1,26 @@
-import Filter, {
-  IFilterOnChangeParams,
-} from "components/house-list/filter/Filter";
+import Filter from "components/house-list/filter/Filter";
 import PageTitle from "components/house-list/Page-Title";
 import { Container } from "./house-list.style";
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { IFilterContext } from "store/filter-context";
+import FilterProvider from "components/providers/FilterProvider";
 
 export default function HouseList() {
-  const [search, setSearch] = useState("");
+  const [filter, setFilterState] = useState<IFilterContext>({
+    search: "",
+    sort: "price",
+  });
 
-  function onFilterChange({ key, value }: IFilterOnChangeParams) {
-    if (key === "search") setSearch(value);
-  }
+  const setFilter = useCallback((value: Partial<IFilterContext>) => {
+    setFilterState((old) => ({ ...old, ...value }));
+  }, []);
 
   return (
-    <Container>
-      <PageTitle />
-      <Filter searchKeyword={search} onChange={onFilterChange} />
-    </Container>
+    <FilterProvider filter={filter} setFilter={setFilter}>
+      <Container>
+        <PageTitle />
+        <Filter />
+      </Container>
+    </FilterProvider>
   );
 }

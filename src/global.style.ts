@@ -27,8 +27,17 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 14px;
    }
 
+   button {
+      font-size: 12px;
+      cursor: pointer;
+   }
+
    @media(min-width: 1024px){
       html, body {
+         font-size: 18px;
+      }
+
+      button {
          font-size: 18px;
       }
    }
