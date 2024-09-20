@@ -1,11 +1,13 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useMemo, useState } from "react";
 import { ClearIcon, SearchInput, SearchInputContainer } from "./filter.style";
 import Sort, { SortValue } from "./ Sort";
 import { useFilter, useFilterActions } from "store/filter-context";
+import debouncedFn from "lib/debounced-fn";
 
 export default function Filter() {
   const filter = useFilter();
   const { setFilter } = useFilterActions();
+  const [search, setSearch] = useState(filter.search);
 
   function onSearchChange(value: string) {
     setFilter({
@@ -19,15 +21,22 @@ export default function Filter() {
     });
   }
 
+  const debouncedOnSearchChange = useMemo(
+    () => debouncedFn(onSearchChange, 300),
+    []
+  );
+
   return (
     <div>
       <SearchInputContainer>
         <SearchInput
           placeholder="Search for a house"
-          value={filter.search}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            onSearchChange(e.target.value)
-          }
+          value={search}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            const { value } = e.target;
+            setSearch(value);
+            debouncedOnSearchChange(value);
+          }}
         />
         {filter.search && (
           <ClearIcon
