@@ -10,6 +10,7 @@ export default function Filter() {
   const [search, setSearch] = useState(filter.search);
 
   function onSearchChange(value: string) {
+    setSearch(value);
     setFilter({
       search: value,
     });
@@ -38,7 +39,7 @@ export default function Filter() {
             debouncedOnSearchChange(value);
           }}
         />
-        {filter.search && (
+        {search && (
           <ClearIcon
             src="images/icons/clear.png"
             onClick={() => onSearchChange("")}

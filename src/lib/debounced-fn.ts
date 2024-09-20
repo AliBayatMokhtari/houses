@@ -14,7 +14,7 @@ export default function debouncedFn<F>(fn: F, delay: number) {
     clearTimeOut();
 
     timeout = setTimeout(() => {
-      fn(args);
+      fn(...args);
       clearTimeOut();
     }, delay);
   } as unknown as F;
