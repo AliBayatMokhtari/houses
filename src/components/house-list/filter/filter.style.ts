@@ -33,3 +33,13 @@ export const SearchInput = styled.input`
     color: ${(props) => props.theme.colors.element.darkGray.hex};
   }
 `;
+
+export const ClearIcon = styled.img`
+  --size: 18px;
+  width: var(--size);
+  height: calc(var(--size) + 1px);
+  top: calc(50% - 1px);
+  transform: translateY(calc(-50% + 1px));
+  position: absolute;
+  right: calc(var(--size) / 2 + 8px);
+`;
