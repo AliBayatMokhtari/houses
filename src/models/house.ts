@@ -1,6 +1,6 @@
 export interface IHouse {
   id: number;
-  image: string;
+  image: string | null;
   price: number;
   rooms: {
     bedrooms: number;

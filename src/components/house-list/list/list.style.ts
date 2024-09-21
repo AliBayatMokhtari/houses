@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100%;
+  --margin-block: 2rem;
+  height: calc(100vh - (227px + var(--margin-block)));
   overflow: auto;
+  margin-block: var(--margin-block);
 `;
 
 export const VirtualizerContainer = styled.div<{ $height: number }>`

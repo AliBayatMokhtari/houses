@@ -6,6 +6,7 @@ import {
   VirtualItemContainer,
   VirtualizerContainer,
 } from "./list.style";
+import HouseItem from "../house-item/HouseItem";
 
 interface IListProps {
   data: IHouse[];
@@ -15,7 +16,7 @@ export default function List({ data }: IListProps) {
   const ref = useRef<HTMLDivElement>(null);
   const rowVirtualizer = useVirtualizer({
     count: data.length,
-    estimateSize: () => 100,
+    estimateSize: () => 150,
     getScrollElement: () => ref.current,
   });
 
@@ -28,7 +29,7 @@ export default function List({ data }: IListProps) {
             $height={virtualItem.size}
             $start={virtualItem.start}
           >
-            {data?.[virtualItem.index].id}
+            <HouseItem house={data[virtualItem.index]} />
           </VirtualItemContainer>
         ))}
       </VirtualizerContainer>
