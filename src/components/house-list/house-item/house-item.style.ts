@@ -10,6 +10,7 @@ export const InnerContainer = styled.div`
   height: 100%;
   display: flex;
   border-radius: 8px;
+  cursor: pointer;
 `;
 
 export const HouseItemImg = styled.img`

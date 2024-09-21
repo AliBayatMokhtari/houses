@@ -15,7 +15,7 @@ interface IMobileNavigationItem {
 export default function BottomNavigation() {
   const navigationItems: IMobileNavigationItem[] = [
     {
-      name: useAnyMatch([routes.home, routes.newHouse])
+      name: useAnyMatch([routes.home, routes.newHouse, routes.houseDetails])
         ? "home-mobile-navigation-active.png"
         : "home-mobile-navigation.png",
       url: routes.home,

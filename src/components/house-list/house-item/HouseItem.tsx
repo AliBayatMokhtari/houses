@@ -15,23 +15,28 @@ import {
   Street,
 } from "./house-item.style";
 import IconButton from "components/common/icon-button/IconButton";
-
-const fallbackImgUrl = "images/broken-house.png";
+import { fallbackImgUrl } from "lib/constants";
+import { useNavigate } from "react-router-dom";
 
 interface IHouseItemProps {
   house: IHouse;
 }
 
 export default function HouseItem({ house }: IHouseItemProps) {
+  const navigate = useNavigate();
   const features = [
     { icon: "images/icons/bed.png", value: house.rooms.bedrooms },
     { icon: "images/icons/bath.png", value: house.rooms.bathrooms },
     { icon: "images/icons/size.png", value: `${house.size} m2` },
   ];
 
+  function goToDetailsPage() {
+    navigate(`/houses/${house.id}`);
+  }
+
   return (
     <Container>
-      <InnerContainer>
+      <InnerContainer onClick={goToDetailsPage}>
         <HouseItemImg src={house.image || fallbackImgUrl} />
         <Info $madeByMe={house.madeByMe}>
           <InfoHeader>
