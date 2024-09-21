@@ -1,3 +1,4 @@
+import LoadingSpinner from "components/common/loading-spinner/LoadingSpinner";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -27,4 +28,10 @@ export const PlusIcon = styled.img`
   --size: 18px;
   width: var(--size);
   height: var(--size);
+`;
+
+export const StyledSpinner = styled(LoadingSpinner)`
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
 `;

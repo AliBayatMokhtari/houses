@@ -2,23 +2,24 @@ import createClient from "./client";
 
 const client = createClient();
 
-function get(url: string) {
-  return client.fetch(url, {
-    method: "GET",
-  });
+async function get(url: string) {
+  const response = await client.fetch(url, { method: "GET" });
+  if (!response.ok) throw response;
+  else return response.json();
 }
 
-function post<B extends object | FormData>(url: string, body: B) {
-  return client.fetch(url, {
+async function post<B extends object | FormData>(url: string, body: B) {
+  const response = await client.fetch(url, {
     method: "POST",
     body: body instanceof FormData ? body : JSON.stringify(body),
   });
+  if (!response.ok) throw response;
+  else return response.json();
 }
 
-function remove(url: string) {
-  return client.fetch(url, {
-    method: "DELETE",
-  });
+async function remove(url: string) {
+  const response = await client.fetch(url, { method: "DELETE" });
+  if (!response.ok) throw response;
 }
 
 export default {

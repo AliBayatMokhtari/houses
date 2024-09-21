@@ -6,7 +6,7 @@ export default function createClient() {
   };
 
   return {
-    fetch(url: string, { headers, ...restInit }: RequestInit = {}) {
+    async fetch(url: string, { headers, ...restInit }: RequestInit = {}) {
       return fetch(apiBaseUrl + url, {
         headers: {
           ...defaultHeaders,

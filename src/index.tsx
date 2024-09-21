@@ -1,3 +1,4 @@
+import QueryClientProvider from "components/providers/QueryClientProvider";
 import ThemeProvider from "components/providers/ThemeProvider";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -10,8 +11,10 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <QueryClientProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
