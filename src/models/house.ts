@@ -1,6 +1,6 @@
 export interface IHouse {
   id: number;
-  image: string | null;
+  image: Nullable<string>;
   price: number;
   rooms: {
     bedrooms: number;
@@ -11,7 +11,7 @@ export interface IHouse {
   location: {
     street: string;
     houseNumber: number;
-    houseNumberAddition: string | null;
+    houseNumberAddition: Nullable<string>;
     city: string;
     zip: string;
   };

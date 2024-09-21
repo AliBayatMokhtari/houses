@@ -5,6 +5,7 @@ import {
   ItemContainer,
   NavigationImage,
 } from "./bottom-navigation.style";
+import useAnyMatch from "lib/use-any-match";
 
 interface IMobileNavigationItem {
   name: `${"home" | "info"}-mobile-navigation${"-active" | ""}.png`;
@@ -14,7 +15,7 @@ interface IMobileNavigationItem {
 export default function BottomNavigation() {
   const navigationItems: IMobileNavigationItem[] = [
     {
-      name: useMatch(routes.home)
+      name: useAnyMatch([routes.home, routes.newHouse])
         ? "home-mobile-navigation-active.png"
         : "home-mobile-navigation.png",
       url: routes.home,
