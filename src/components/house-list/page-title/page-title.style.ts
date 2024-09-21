@@ -24,12 +24,6 @@ export const ActionContainer = styled.div`
   justify-content: flex-end;
 `;
 
-export const PlusIcon = styled.img`
-  --size: 18px;
-  width: var(--size);
-  height: var(--size);
-`;
-
 export const StyledSpinner = styled(LoadingSpinner)`
   display: inline-block;
   vertical-align: middle;

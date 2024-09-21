@@ -1,7 +1,7 @@
+import IconButton from "components/common/icon-button/IconButton";
 import {
   ActionContainer,
   Container,
-  PlusIcon,
   Space,
   StyledSpinner,
   Title,
@@ -17,7 +17,7 @@ export default function PageTitle({ loading }: IPageTitleProps) {
       <Space />
       <Title>Houses {loading && <StyledSpinner />}</Title>
       <ActionContainer>
-        <PlusIcon src="images/icons/plus-filled.png" />
+        <IconButton icon="images/icons/plus-filled.png" />
       </ActionContainer>
     </Container>
   );

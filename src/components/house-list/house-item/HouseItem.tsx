@@ -1,7 +1,5 @@
 import { IHouse } from "models/house";
 import {
-  ActionIcon,
-  ActionItem,
   Actions,
   Address,
   Container,
@@ -16,6 +14,7 @@ import {
   Price,
   Street,
 } from "./house-item.style";
+import IconButton from "components/common/icon-button/IconButton";
 
 const fallbackImgUrl = "images/broken-house.png";
 
@@ -39,12 +38,8 @@ export default function HouseItem({ house }: IHouseItemProps) {
             <Street>{house.location.street}</Street>
             {house.madeByMe && (
               <Actions>
-                <ActionItem>
-                  <ActionIcon src="images/icons/edit-primary.png" />
-                </ActionItem>
-                <ActionItem>
-                  <ActionIcon src="images/icons/delete.png" />
-                </ActionItem>
+                <IconButton icon="images/icons/edit-primary.png" />
+                <IconButton icon="images/icons/delete.png" />
               </Actions>
             )}
           </InfoHeader>
