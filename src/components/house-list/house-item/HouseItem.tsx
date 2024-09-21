@@ -21,6 +21,12 @@ interface IHouseItemProps {
 }
 
 export default function HouseItem({ house }: IHouseItemProps) {
+  const features = [
+    { icon: "images/icons/bed.png", value: house.rooms.bedrooms },
+    { icon: "images/icons/bath.png", value: house.rooms.bathrooms },
+    { icon: "images/icons/size.png", value: `${house.size} m2` },
+  ];
+
   return (
     <Container>
       <InnerContainer>
@@ -34,18 +40,12 @@ export default function HouseItem({ house }: IHouseItemProps) {
             {house.location.zip} {house.location.city}
           </Address>
           <Features>
-            <FeatureItem>
-              <FeatureIcon src="images/icons/bed.png" />
-              <FeatureValue>{house.rooms.bedrooms}</FeatureValue>
-            </FeatureItem>
-            <FeatureItem>
-              <FeatureIcon src="images/icons/bath.png" />
-              <FeatureValue>{house.rooms.bathrooms}</FeatureValue>
-            </FeatureItem>
-            <FeatureItem>
-              <FeatureIcon src="images/icons/size.png" />
-              <FeatureValue>{house.size} m2</FeatureValue>
-            </FeatureItem>
+            {features.map((feature, index) => (
+              <FeatureItem key={index}>
+                <FeatureIcon src={feature.icon} />
+                <FeatureValue>{feature.value}</FeatureValue>
+              </FeatureItem>
+            ))}
           </Features>
         </Info>
       </InnerContainer>
