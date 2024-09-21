@@ -21,10 +21,12 @@ export const HouseItemImg = styled.img`
   border-radius: 8px;
 `;
 
-export const Info = styled.div`
+export const Info = styled.div<{ $madeByMe: boolean }>`
   flex: 1;
   padding-block: 1.5rem;
   padding-inline: 1.5rem;
+  position: relative;
+  bottom: ${(props) => (props.$madeByMe ? 1 : 0)}rem;
 `;
 
 export const InfoHeader = styled.div`

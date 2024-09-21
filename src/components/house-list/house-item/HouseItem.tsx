@@ -34,7 +34,7 @@ export default function HouseItem({ house }: IHouseItemProps) {
     <Container>
       <InnerContainer>
         <HouseItemImg src={house.image || fallbackImgUrl} />
-        <Info>
+        <Info $madeByMe={house.madeByMe}>
           <InfoHeader>
             <Street>{house.location.street}</Street>
             {house.madeByMe && (
