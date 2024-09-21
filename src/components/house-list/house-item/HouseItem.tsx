@@ -1,5 +1,8 @@
 import { IHouse } from "models/house";
 import {
+  ActionIcon,
+  ActionItem,
+  Actions,
   Address,
   Container,
   FeatureIcon,
@@ -34,6 +37,16 @@ export default function HouseItem({ house }: IHouseItemProps) {
         <Info>
           <InfoHeader>
             <Street>{house.location.street}</Street>
+            {house.madeByMe && (
+              <Actions>
+                <ActionItem>
+                  <ActionIcon src="images/icons/edit-primary.png" />
+                </ActionItem>
+                <ActionItem>
+                  <ActionIcon src="images/icons/delete.png" />
+                </ActionItem>
+              </Actions>
+            )}
           </InfoHeader>
           <Price>€ {(house.price / 1000).toFixed(3)}</Price>
           <Address>

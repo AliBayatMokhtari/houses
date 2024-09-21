@@ -39,6 +39,32 @@ export const Street = styled.h2`
 
 export const Actions = styled.div``;
 
+export const ActionItem = styled.button`
+  outline: none;
+  border: none;
+  background: none;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:first-of-type {
+    margin-right: 2px;
+  }
+`;
+
+export const ActionIcon = styled.img`
+  --size: 16px;
+  width: var(--size);
+  height: var(--size);
+`;
+
 export const Price = styled.p`
   line-height: 2;
   color: ${(props) => props.theme.colors.text.secondary.hex};
