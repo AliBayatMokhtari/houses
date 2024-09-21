@@ -14,6 +14,7 @@ import {
 } from "./house-details.style";
 import { fallbackImgUrl } from "lib/constants";
 import LoadingSpinner from "components/common/loading-spinner/LoadingSpinner";
+import RecommendedForYou from "./recommended-for-you/RecommendedForYou";
 
 interface IHouseDetailsProps {
   house: IHouse;
@@ -67,6 +68,7 @@ export default function HouseDetails({ house, loading }: IHouseDetailsProps) {
         </DetailsRow>
         <Description>{house.description}</Description>
       </Details>
+      <RecommendedForYou house={house} />
     </>
   );
 }
