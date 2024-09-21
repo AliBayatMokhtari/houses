@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import { Icon, StyledIconButton } from "./icon-button-style";
 
-interface IIconButtonProps extends ComponentProps<"button"> {
+export interface IIconButtonProps extends ComponentProps<"button"> {
   icon: string;
   iconProps?: ComponentProps<"img">;
 }

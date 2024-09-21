@@ -5,6 +5,7 @@ import { routes } from "./routes";
 
 const HouseList = lazy(() => import("pages/house-list/HouseList"));
 const AboutUs = lazy(() => import("pages/about-us/AboutUs"));
+const NewHouse = lazy(() => import("pages/new-house/NewHouse"));
 
 const lazyPage = (Page: LazyExoticComponent<() => JSX.Element>) => (
   <Suspense fallback="loading page...">
@@ -24,6 +25,10 @@ export const router = createHashRouter([
       {
         path: routes.aboutUs,
         element: lazyPage(AboutUs),
+      },
+      {
+        path: routes.newHouse,
+        element: lazyPage(NewHouse),
       },
     ],
   },

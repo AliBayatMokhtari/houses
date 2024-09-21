@@ -6,6 +6,8 @@ import {
   StyledSpinner,
   Title,
 } from "./page-title.style";
+import { Link } from "react-router-dom";
+import { routes } from "router/routes";
 
 interface IPageTitleProps {
   loading: boolean;
@@ -17,7 +19,9 @@ export default function PageTitle({ loading }: IPageTitleProps) {
       <Space />
       <Title>Houses {loading && <StyledSpinner />}</Title>
       <ActionContainer>
-        <IconButton icon="images/icons/plus-filled.png" />
+        <Link to={routes.newHouse}>
+          <IconButton icon="images/icons/plus-filled.png" />
+        </Link>
       </ActionContainer>
     </Container>
   );
