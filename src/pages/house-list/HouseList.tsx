@@ -1,6 +1,6 @@
 import Filter from "components/house-list/filter/Filter";
 import List from "components/house-list/list/List";
-import PageTitle from "components/house-list/Page-Title";
+import PageTitle from "components/house-list/page-title/PageTitle";
 import FilterProvider from "components/providers/FilterProvider";
 import { useCallback, useState } from "react";
 import useHouseList from "services/use-house-list";
