@@ -7,6 +7,7 @@ import useHouseList from "services/use-house-list";
 import { IFilterContext } from "store/filter-context";
 import { Container, FullLoading, FullLoadingTitle } from "./house-list.style";
 import LoadingSpinner from "components/common/loading-spinner/LoadingSpinner";
+import NoResult from "components/house-list/no-result/NoResult";
 
 export default function HouseList() {
   const { data, isFetching, isLoading, error } = useHouseList();
@@ -29,7 +30,7 @@ export default function HouseList() {
 
   if (error || !data) return <div>Something went wrong...</div>;
 
-  if (!data.length) return <div>Empty View...</div>;
+  if (!data.length) return <NoResult />;
 
   return (
     <FilterProvider filter={filter} setFilter={setFilter}>
