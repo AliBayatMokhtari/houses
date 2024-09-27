@@ -1,3 +1,4 @@
+import throwMissingProvider from "lib/throw-missing-provider";
 import { createContext, useContext } from "react";
 
 export interface IFilterContext {
@@ -21,8 +22,7 @@ export const FilterActionsContext = createContext<IFilterContextActions>({
 export function useFilter() {
   const context = useContext(FilterContext);
 
-  if (!context)
-    throw new Error("<FilterProvider /> is missing at the top levels.");
+  if (!context) throwMissingProvider("<FilterProvider />");
 
   return context;
 }
@@ -30,8 +30,7 @@ export function useFilter() {
 export function useFilterActions() {
   const context = useContext(FilterActionsContext);
 
-  if (!context)
-    throw new Error("<FilterProvider /> is missing at the top levels.");
+  if (!context) throwMissingProvider("<FilterProvider />");
 
   return context;
 }
