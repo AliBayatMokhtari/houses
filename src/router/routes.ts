@@ -3,4 +3,5 @@ export const routes = {
   aboutUs: "/about-us",
   newHouse: "/new-house",
   houseDetails: "/houses/:houseId",
+  register: "/register",
 } as const;
