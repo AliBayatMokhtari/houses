@@ -21,6 +21,7 @@ export const Title = styled.h2`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  height: 2rem;
 `;
 
 export const DetailsRow = styled.div`
